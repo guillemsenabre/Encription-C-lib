@@ -8,6 +8,12 @@
 #programs at runtime allowing multiple programs to use it without duplicating it.
 # - ldl -> links our library to the "ld" library. This means that our library needs this one to work.
 
+test: test.o
+	gcc test.o test -O2 -Wall test.
+
+test.o: test.c
+	gcc -c -O2 -Wall test.c
+
 rcfour: rcfour.o
 	gcc rcfour.o -o rcfour.so -02 -Wall -fPIC -shared -ldl -D_GNU_SOFTWARE
 
